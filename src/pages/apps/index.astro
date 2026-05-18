@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import AppCard from '../../components/AppCard.astro'
+import SectionTitle from '../../components/SectionTitle.astro'
+import { apps, getCategories } from '../../data/apps'
+
+const categories = getCategories()
+---
+
+<Layout
+  title="Apps"
+  description="Toutes les apps développées sur nocodetools.fr — filtrez par catégorie, stack ou statut."
+>
+  <div class="pt-24 pb-16 min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-8 pt-8">
+        <SectionTitle
+          label="Portfolio"
+          title="Toutes les apps"
+          subtitle={`${apps.length} app${apps.length > 1 ? 's' : ''} — des outils réels, du code propre.`}
+          align="left"
+        />
+
+        <!-- Filters -->
+        <div class="flex flex-col gap-4">
+          <!-- Search -->
+          <div class="relative max-w-md">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Rechercher une app, une techno..."
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-zinc-900 border border-white/8 text-zinc-200 placeholder-zinc-600 text-sm focus:outline-none focus:border-indigo-500/50 focus:bg-zinc-900 transition-all"
+            />
+          </div>
+
+          <!-- Category filters -->
+          <div class="flex flex-wrap gap-2" id="category-filters">
+            <button
+              class="category-btn active-filter px-4 py-1.5 rounded-full text-sm font-medium transition-all border"
+              data-category="all"
+            >
+              Toutes
+            </button>
+            {categories.map(cat => (
+              <button
+                class="category-btn px-4 py-1.5 rounded-full text-sm font-medium transition-all border"
+                data-category={cat}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden flex-col items-center gap-4 py-24 text-center">
+        <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-white/8 flex items-center justify-center">
+          <svg class="w-8 h-8 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <p class="text-zinc-500 text-sm">Aucune app trouvée pour ces critères.</p>
+        <button id="reset-filters" class="text-indigo-400 text-sm hover:text-indigo-300 transition-colors">
+          Réinitialiser les filtres
+        </button>
+      </div>
+
+      <!-- Grid -->
+      <div id="apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {apps.map(app => (
+          <div
+            class="app-item animate-fade-in-up"
+            data-category={app.category}
+            data-stack={app.stack.join(',').toLowerCase()}
+            data-title={`${app.title} ${app.tagline} ${app.stack.join(' ')}`.toLowerCase()}
+          >
+            <AppCard app={app} />
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .category-btn {
+    color: #71717a;
+    border-color: rgba(255,255,255,0.08);
+    background: transparent;
+  }
+  .category-btn:hover {
+    color: #f4f4f5;
+    border-color: rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.05);
+  }
+  .category-btn.active-filter {
+    color: #818cf8;
+    border-color: rgba(99,102,241,0.3);
+    background: rgba(99,102,241,0.1);
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement
+  const categoryBtns = document.querySelectorAll<HTMLButtonElement>('.category-btn')
+  const appItems = document.querySelectorAll<HTMLElement>('.app-item')
+  const emptyState = document.getElementById('empty-state')
+  const resetBtn = document.getElementById('reset-filters')
+
+  let activeCategory = 'all'
+  let searchQuery = ''
+
+  function filterApps() {
+    let visible = 0
+
+    appItems.forEach(item => {
+      const matchCategory =
+        activeCategory === 'all' || item.dataset.category === activeCategory
+      const matchSearch =
+        !searchQuery || (item.dataset.title ?? '').includes(searchQuery)
+
+      const show = matchCategory && matchSearch
+      item.style.display = show ? '' : 'none'
+      if (show) visible++
+    })
+
+    if (emptyState) {
+      emptyState.style.display = visible === 0 ? 'flex' : 'none'
+    }
+  }
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCategory = btn.dataset.category ?? 'all'
+      categoryBtns.forEach(b => b.classList.remove('active-filter'))
+      btn.classList.add('active-filter')
+      filterApps()
+    })
+  })
+
+  searchInput?.addEventListener('input', () => {
+    searchQuery = searchInput.value.toLowerCase().trim()
+    filterApps()
+  })
+
+  resetBtn?.addEventListener('click', () => {
+    activeCategory = 'all'
+    searchQuery = ''
+    searchInput.value = ''
+    categoryBtns.forEach(b => b.classList.remove('active-filter'))
+    categoryBtns[0]?.classList.add('active-filter')
+    filterApps()
+  })
+</script>

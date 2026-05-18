@@ -1,0 +1,29 @@
+---
+interface Props {
+  label?: string
+  title: string
+  subtitle?: string
+  align?: 'left' | 'center'
+}
+
+const { label, title, subtitle, align = 'center' } = Astro.props
+const alignClass = align === 'center' ? 'text-center items-center' : 'text-left items-start'
+---
+
+<div class:list={['flex flex-col gap-4', alignClass]}>
+  {label && (
+    <span class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 tracking-widest uppercase">
+      <span class="w-4 h-px bg-indigo-400" />
+      {label}
+      <span class="w-4 h-px bg-indigo-400" />
+    </span>
+  )}
+  <h2 class="text-3xl md:text-4xl font-bold text-zinc-100 leading-tight">
+    {title}
+  </h2>
+  {subtitle && (
+    <p class="text-zinc-500 text-lg max-w-2xl leading-relaxed">
+      {subtitle}
+    </p>
+  )}
+</div>

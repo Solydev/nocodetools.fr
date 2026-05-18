@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import AppGallery from '../../components/AppGallery.astro'
+import TechBadge from '../../components/TechBadge.astro'
+import StatusBadge from '../../components/StatusBadge.astro'
+import CTASection from '../../components/CTASection.astro'
+import { apps } from '../../data/apps'
+import type { App } from '../../types/app'
+
+export function getStaticPaths() {
+  return apps.map(app => ({
+    params: { slug: app.slug },
+    props: { app },
+  }))
+}
+
+interface Props {
+  app: App
+}
+
+const { app } = Astro.props
+---
+
+<Layout
+  title={app.title}
+  description={app.tagline}
+  ogImage={app.screenshots.main}
+>
+  <div class="pt-24 pb-0">
+
+    <!-- Back button -->
+    <div class="max-w-7xl mx-auto px-6 pt-8 pb-4">
+      <a
+        href="/apps"
+        class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300 transition-colors group"
+      >
+        <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Toutes les apps
+      </a>
+    </div>
+
+    <!-- Hero info -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+        <!-- Left: Gallery -->
+        <div class="animate-fade-in-up">
+          <AppGallery
+            main={app.screenshots.main}
+            gallery={app.screenshots.gallery}
+            title={app.title}
+          />
+        </div>
+
+        <!-- Right: Info -->
+        <div class="flex flex-col gap-8 animate-fade-in-up animate-delay-100">
+          <!-- Category + status -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <span class="text-xs font-semibold text-indigo-400 tracking-widest uppercase">{app.category}</span>
+            <span class="text-zinc-700">·</span>
+            <StatusBadge status={app.status} />
+            {app.year && (
+              <>
+                <span class="text-zinc-700">·</span>
+                <span class="text-xs text-zinc-600">{app.year}</span>
+              </>
+            )}
+          </div>
+
+          <!-- Title + tagline -->
+          <div class="flex flex-col gap-3">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-zinc-100 leading-tight">
+              {app.title}
+            </h1>
+            <p class="text-zinc-400 text-xl leading-relaxed">
+              {app.tagline}
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="flex flex-wrap gap-3">
+            {app.links.demo && (
+              <a
+                href={app.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                Voir la démo
+              </a>
+            )}
+            {app.links.github && (
+              <a
+                href={app.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white font-semibold text-sm transition-all border border-white/8 hover:border-white/16 hover:-translate-y-0.5"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+                GitHub
+              </a>
+            )}
+          </div>
+
+          <!-- Stack -->
+          <div class="flex flex-col gap-3">
+            <h3 class="text-xs font-semibold text-zinc-500 tracking-widest uppercase">Stack technique</h3>
+            <div class="flex flex-wrap gap-2">
+              {app.stack.map(tech => <TechBadge tech={tech} />)}
+            </div>
+          </div>
+
+          <!-- Features -->
+          {app.features.length > 0 && (
+            <div class="flex flex-col gap-3">
+              <h3 class="text-xs font-semibold text-zinc-500 tracking-widest uppercase">Fonctionnalités clés</h3>
+              <ul class="flex flex-col gap-2">
+                {app.features.map(feat => (
+                  <li class="flex items-start gap-2.5 text-sm text-zinc-400">
+                    <svg class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Description section -->
+    <div class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+      <div class="max-w-3xl flex flex-col gap-6">
+        <h2 class="text-2xl font-bold text-zinc-100">À propos de {app.title}</h2>
+        <p class="text-zinc-400 leading-relaxed text-lg whitespace-pre-line">
+          {app.description}
+        </p>
+      </div>
+    </div>
+
+    <!-- What this app demonstrates -->
+    <div class="max-w-7xl mx-auto px-6 pb-16">
+      <div class="p-6 md:p-8 rounded-2xl border border-white/5 bg-zinc-900/30 flex flex-col gap-6">
+        <h3 class="text-lg font-semibold text-zinc-200">Ce que cette app démontre</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-zinc-300 mb-1">Exécution rapide</p>
+              <p class="text-xs text-zinc-600 leading-relaxed">Du prototype au produit utilisable en un temps minimal.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-zinc-300 mb-1">Qualité de finition</p>
+              <p class="text-xs text-zinc-600 leading-relaxed">Interface soignée, UX pensée, code propre et maintenable.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-zinc-300 mb-1">Utilité réelle</p>
+              <p class="text-xs text-zinc-600 leading-relaxed">Conçu pour résoudre un vrai problème, pas pour impressionner.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <CTASection
+    title="Vous avez un projet similaire ?"
+    subtitle="Je peux transformer votre idée en app fonctionnelle, propre et rapidement déployable."
+  />
+</Layout>

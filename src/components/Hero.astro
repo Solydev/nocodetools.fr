@@ -1,0 +1,128 @@
+---
+import { getFeaturedApps } from '../data/apps'
+
+const featured = getFeaturedApps().slice(0, 3)
+---
+
+<section class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+  <!-- Background: grid + gradient blobs -->
+  <div class="absolute inset-0 bg-grid opacity-60" />
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/8 rounded-full blur-3xl pointer-events-none" />
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+
+  <div class="relative max-w-7xl mx-auto px-6 py-24 w-full">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: text -->
+      <div class="flex flex-col gap-8">
+        <!-- Label -->
+        <div class="animate-fade-in-up inline-flex">
+          <span class="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 tracking-widest uppercase px-3 py-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+            Portfolio — Vibe Coding
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <div class="flex flex-col gap-4 animate-fade-in-up animate-delay-100">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight">
+            <span class="text-zinc-100">Des apps</span><br />
+            <span class="gradient-text-accent">utiles et propres,</span><br />
+            <span class="text-zinc-100">livrées vite.</span>
+          </h1>
+        </div>
+
+        <!-- Subtitle -->
+        <p class="text-zinc-400 text-lg md:text-xl leading-relaxed max-w-lg animate-fade-in-up animate-delay-200">
+          Une collection d'outils web conçus pour transformer des idées en interfaces fonctionnelles —
+          sans sacrifier la qualité ni la maintenabilité.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 animate-fade-in-up animate-delay-300">
+          <a
+            href="/apps"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5"
+          >
+            Voir les apps
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/solydev"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white font-semibold text-sm transition-all duration-200 border border-white/8 hover:border-white/16 hover:-translate-y-0.5"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex items-center gap-8 animate-fade-in-up animate-delay-400">
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold text-zinc-100">4+</span>
+            <span class="text-xs text-zinc-500">Apps déployées</span>
+          </div>
+          <div class="w-px h-8 bg-white/8" />
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold text-zinc-100">100%</span>
+            <span class="text-xs text-zinc-500">Code propre</span>
+          </div>
+          <div class="w-px h-8 bg-white/8" />
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold text-zinc-100">∞</span>
+            <span class="text-xs text-zinc-500">Idées à venir</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: floating app cards preview -->
+      <div class="hidden lg:flex flex-col gap-4 animate-fade-in animate-delay-300">
+        {featured.map((app, i) => (
+          <a
+            href={`/apps/${app.slug}`}
+            class:list={[
+              'flex items-center gap-4 p-4 rounded-xl border border-white/8 bg-zinc-900/70 backdrop-blur-sm hover:border-indigo-500/30 hover:bg-zinc-900 transition-all duration-200 group/preview',
+              i === 1 ? 'ml-8' : i === 2 ? 'ml-4' : '',
+            ]}
+          >
+            <div class="w-12 h-12 rounded-lg overflow-hidden bg-zinc-800 shrink-0">
+              <img src={app.screenshots.main} alt={app.title} class="w-full h-full object-cover" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-sm font-semibold text-zinc-200 group-hover/preview:text-white transition-colors truncate">
+                  {app.title}
+                </p>
+                <span class="text-xs text-zinc-600">{app.category}</span>
+              </div>
+              <p class="text-xs text-zinc-500 truncate">{app.tagline}</p>
+            </div>
+            <svg class="w-4 h-4 text-zinc-600 group-hover/preview:text-indigo-400 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
+
+        <!-- Decorative dots -->
+        <div class="flex justify-end gap-2 mt-2 pr-4">
+          {[0,1,2].map(i => (
+            <div class:list={['w-1.5 h-1.5 rounded-full', i === 0 ? 'bg-indigo-500' : 'bg-zinc-700']} />
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
+      <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </div>
+</section>

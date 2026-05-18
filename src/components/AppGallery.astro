@@ -1,0 +1,67 @@
+---
+interface Props {
+  main: string
+  gallery: string[]
+  title: string
+}
+
+const { main, gallery, title } = Astro.props
+const allImages = [main, ...gallery]
+---
+
+<div class="flex flex-col gap-3">
+  <!-- Main image -->
+  <div class="relative rounded-xl overflow-hidden border border-white/8 bg-zinc-950 aspect-video">
+    <img
+      id="gallery-main"
+      src={main}
+      alt={`${title} — screenshot principal`}
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Thumbnails -->
+  {allImages.length > 1 && (
+    <div class="flex gap-2 overflow-x-auto pb-1">
+      {allImages.map((src, i) => (
+        <button
+          class:list={[
+            'gallery-thumb shrink-0 w-20 h-14 rounded-lg overflow-hidden border transition-all duration-200',
+            i === 0
+              ? 'border-indigo-500 opacity-100'
+              : 'border-white/8 opacity-50 hover:opacity-80 hover:border-white/20',
+          ]}
+          data-src={src}
+          data-index={i}
+          aria-label={`Screenshot ${i + 1}`}
+        >
+          <img
+            src={src}
+            alt={`${title} screenshot ${i + 1}`}
+            class="w-full h-full object-cover"
+          />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  const main = document.getElementById('gallery-main') as HTMLImageElement | null
+  const thumbs = document.querySelectorAll<HTMLButtonElement>('.gallery-thumb')
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const src = thumb.dataset.src
+      if (main && src) {
+        main.src = src
+      }
+      thumbs.forEach(t => {
+        t.classList.remove('border-indigo-500', 'opacity-100')
+        t.classList.add('border-white/8', 'opacity-50')
+      })
+      thumb.classList.remove('border-white/8', 'opacity-50')
+      thumb.classList.add('border-indigo-500', 'opacity-100')
+    })
+  })
+</script>

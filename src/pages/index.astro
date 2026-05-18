@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import AppCard from '../components/AppCard.astro'
+import SectionTitle from '../components/SectionTitle.astro'
+import CTASection from '../components/CTASection.astro'
+import { getFeaturedApps } from '../data/apps'
+
+const featured = getFeaturedApps()
+
+const philosophy = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
+    title: 'Prototyper vite',
+    desc: 'Une idée mérite d\'être testée en quelques jours, pas en quelques mois. La vitesse d\'exécution est une compétence.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+    title: 'UX sans compromis',
+    desc: 'Un outil non utilisé ne sert à rien. Chaque interface est pensée pour être intuitive et agréable, pas juste fonctionnelle.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />`,
+    title: 'Automatiser l\'inutile',
+    desc: 'Les tâches répétitives sont des ennemis de la productivité. Chaque automatisation libère du temps pour ce qui compte.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />`,
+    title: 'Code maintenable',
+    desc: 'Coder vite ne signifie pas coder mal. La lisibilité et la simplicité ne sont jamais sacrifiées au profit de la rapidité.',
+  },
+]
+
+const steps = [
+  { num: '01', title: 'Idée', desc: 'Un problème réel, une friction identifiée, un besoin concret.' },
+  { num: '02', title: 'Prototype', desc: 'Architecture légère, stack adaptée, premier jet opérationnel.' },
+  { num: '03', title: 'Interface', desc: 'UX pensée, design soigné, composants réutilisables.' },
+  { num: '04', title: 'Démo', desc: 'Une app utilisable, déployée, prête à être montrée.' },
+]
+---
+
+<Layout title="nocodetools.fr" description="Portfolio d'apps développées en vibe coding — utiles, propres, rapidement prototypées.">
+  <Hero />
+
+  <!-- Featured apps -->
+  <section class="py-24" id="apps">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+      <SectionTitle
+        label="Apps"
+        title="Projets récents"
+        subtitle="Des outils construits pour résoudre de vrais problèmes, pas des demos de portfolio."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featured.map((app, i) => (
+          <div class:list={['animate-fade-in-up', `animate-delay-${(i + 1) * 100}`]}>
+            <AppCard app={app} />
+          </div>
+        ))}
+      </div>
+
+      <div class="flex justify-center">
+        <a
+          href="/apps"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/8 text-zinc-400 hover:text-zinc-100 hover:border-white/16 text-sm font-medium transition-all duration-200 hover:bg-white/5"
+        >
+          Voir toutes les apps
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-24 border-t border-white/5" id="philosophy">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col gap-16">
+      <SectionTitle
+        label="Approche"
+        title="Une philosophie simple"
+        subtitle="Des outils utiles, une exécution propre, une livraison rapide."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {philosophy.map((item, i) => (
+          <div class:list={[
+            'flex flex-col gap-4 p-6 rounded-xl border border-white/5 bg-zinc-900/30 hover:border-indigo-500/20 hover:bg-zinc-900/50 transition-all duration-300 animate-fade-in-up',
+            `animate-delay-${(i + 1) * 100}`,
+          ]}>
+            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={item.icon} />
+            </div>
+            <h3 class="font-semibold text-zinc-100">{item.title}</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col gap-16">
+      <SectionTitle
+        label="Process"
+        title="De l'idée à la démo"
+        subtitle="Quatre étapes. Pas de réunions inutiles. Que du concret."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step, i) => (
+          <div class="relative flex flex-col gap-4 p-6 lg:p-8 border-l border-white/5 first:border-l-0 md:first:border-l md:border-l lg:border-l lg:first:border-l-0">
+            <span class="text-5xl font-extrabold text-indigo-500/15 leading-none font-mono">{step.num}</span>
+            <div class="w-6 h-px bg-indigo-500/40" />
+            <h3 class="text-lg font-bold text-zinc-100">{step.title}</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</Layout>
