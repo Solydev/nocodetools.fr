@@ -151,6 +151,33 @@ export const apps: App[] = [
     featured: false,
     year: 2023,
   },
+  {
+    slug: 'kronos',
+    title: 'Kronos timesheets',
+    tagline: 'Outil de gestion des feuilles de temps pour les équipes.',
+    description:
+      'Kronos timesheets est un outil interne qui permet de gérer les feuilles de temps des employés de manière efficace et intuitive. Permet de suivre les heures travaillées, les projets associés et de générer des rapports pour la gestion des ressources humaines.',
+    category: 'Productivity',
+    status: 'Live',
+    stack: ['React', 'Bootstrap', 'GitHub pages', 'TypeScript'],
+    features: [
+      'Suivi des heures travaillées',
+      'Gestion des projets associés',
+      'Génération de rapports pour la gestion des ressources humaines',
+      'Interface simple et intuitive',
+    ],
+    screenshots: {
+      main: '/apps/kronos/main.png',
+      gallery: [
+        '/apps/kronos/screen-1.png',
+      ],
+    },
+    links: {
+      github: 'https://github.com/Solydev/kronos',
+    },
+    featured: false,
+    year: 2026  ,
+  },
 ]
 
 export function getAppBySlug(slug: string): App | undefined {
