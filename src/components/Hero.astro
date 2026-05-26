@@ -1,8 +1,7 @@
 ---
-import { getFeaturedApps } from '../data/apps'
+import { apps, getFeaturedApps } from '../data/apps'
 
-const apps = getFeaturedApps()
-const featured = apps.slice(0, 3)
+const featured = getFeaturedApps().slice(0, 3)
 const deployedAppsCount = apps.length
 ---
 
