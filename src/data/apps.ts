@@ -140,7 +140,7 @@ export const apps: App[] = [
       'Support de la syntaxe Markdown standard',
     ],
     screenshots: {
-      main: '/apps/markdown-to-pdf/main.svg',
+      main: '/apps/markdown-to-pdf/main.png',
       gallery: [
         '/apps/markdown-to-pdf/screen-1.png',
       ],
