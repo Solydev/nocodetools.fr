@@ -92,6 +92,7 @@ const deployedAppsCount = apps.length
             href={`/apps/${app.slug}`}
             data-carousel-card
             data-index={i}
+            style={`order: ${i < 3 ? i : 99}`}
             class:list={[
               'flex items-center gap-4 p-4 rounded-xl border border-white/8 bg-zinc-900/70 backdrop-blur-sm hover:border-indigo-500/30 hover:bg-zinc-900 transition-all duration-300 group/preview',
               i === 1 ? 'ml-8' : i === 2 ? 'ml-4' : '',
@@ -116,7 +117,7 @@ const deployedAppsCount = apps.length
           </a>
         ))}
 
-        <div class="flex justify-end gap-2 mt-2 pr-4">
+        <div class="flex justify-end gap-2 mt-2 pr-4 order-last">
           {carouselApps.map((app, i) => (
             <button
               type="button"
