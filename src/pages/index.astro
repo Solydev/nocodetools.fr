@@ -12,30 +12,30 @@ const philosophy = [
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
     title: 'Prototyper vite',
-    desc: 'Une idée mérite d\'être testée en quelques jours, pas en quelques mois. La vitesse d\'exécution est une compétence.',
+    desc: 'Une idée doit pouvoir être testée rapidement, avec juste ce qu\'il faut pour décider si elle vaut la suite.',
   },
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
-    title: 'UX sans compromis',
-    desc: 'Un outil non utilisé ne sert à rien. Chaque interface est pensée pour être intuitive et agréable, pas juste fonctionnelle.',
+    title: 'UX soignée',
+    desc: 'Un outil utile doit rester simple à prendre en main. L\'interface compte autant que la logique derrière.',
   },
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />`,
     title: 'Automatiser l\'inutile',
-    desc: 'Les tâches répétitives sont des ennemis de la productivité. Chaque automatisation libère du temps pour ce qui compte.',
+    desc: 'Quand une tâche se répète trop souvent, elle mérite mieux qu\'un copier-coller manuel.',
   },
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />`,
     title: 'Code maintenable',
-    desc: 'Coder vite ne signifie pas coder mal. La lisibilité et la simplicité ne sont jamais sacrifiées au profit de la rapidité.',
+    desc: 'Aller vite, oui. Mais avec une base lisible, simple à reprendre, et adaptée à la taille du projet.',
   },
 ]
 
 const steps = [
   { num: '01', title: 'Idée', desc: 'Un problème réel, une friction identifiée, un besoin concret.' },
-  { num: '02', title: 'Prototype', desc: 'Architecture légère, stack adaptée, premier jet opérationnel.' },
-  { num: '03', title: 'Interface', desc: 'UX pensée, design soigné, composants réutilisables.' },
-  { num: '04', title: 'Démo', desc: 'Une app utilisable, déployée, prête à être montrée.' },
+  { num: '02', title: 'Prototype', desc: 'Une stack adaptée, un périmètre clair, une première version qui tourne.' },
+  { num: '03', title: 'Interface', desc: 'Des écrans lisibles, des parcours simples, le minimum de friction.' },
+  { num: '04', title: 'Démo', desc: 'Une app utilisable, déployée, prête à être testée par de vrais utilisateurs.' },
 ]
 ---
 
@@ -48,7 +48,7 @@ const steps = [
       <SectionTitle
         label="Apps"
         title="Projets récents"
-        subtitle="Des outils construits pour résoudre de vrais problèmes, pas des demos de portfolio."
+        subtitle="Des outils construits autour de besoins concrets, pas seulement pour remplir une grille de projets."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -78,8 +78,8 @@ const steps = [
     <div class="max-w-7xl mx-auto px-6 flex flex-col gap-16">
       <SectionTitle
         label="Approche"
-        title="Une philosophie simple"
-        subtitle="Des outils utiles, une exécution propre, une livraison rapide."
+        title="Une approche simple"
+        subtitle="Partir d'un vrai usage, construire léger, améliorer quand ça sert vraiment."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -105,7 +105,7 @@ const steps = [
       <SectionTitle
         label="Process"
         title="De l'idée à la démo"
-        subtitle="Quatre étapes. Pas de réunions inutiles. Que du concret."
+        subtitle="Un chemin court pour passer d'une friction à quelque chose qu'on peut essayer."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
