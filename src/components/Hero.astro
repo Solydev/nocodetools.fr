@@ -1,7 +1,7 @@
 ---
-import { apps, getFeaturedApps } from '../data/apps'
+import { apps } from '../data/apps'
 
-const featured = getFeaturedApps().slice(0, 3)
+const carouselApps = apps
 const deployedAppsCount = apps.length
 ---
 
@@ -83,13 +83,19 @@ const deployedAppsCount = apps.length
       </div>
 
       <!-- Right: floating app cards preview -->
-      <div class="hidden lg:flex flex-col gap-4 animate-fade-in animate-delay-300">
-        {featured.map((app, i) => (
+      <div
+        class="hidden lg:flex flex-col gap-4 animate-fade-in animate-delay-300"
+        data-hero-carousel
+      >
+        {carouselApps.map((app, i) => (
           <a
             href={`/apps/${app.slug}`}
+            data-carousel-card
+            data-index={i}
             class:list={[
-              'flex items-center gap-4 p-4 rounded-xl border border-white/8 bg-zinc-900/70 backdrop-blur-sm hover:border-indigo-500/30 hover:bg-zinc-900 transition-all duration-200 group/preview',
+              'flex items-center gap-4 p-4 rounded-xl border border-white/8 bg-zinc-900/70 backdrop-blur-sm hover:border-indigo-500/30 hover:bg-zinc-900 transition-all duration-300 group/preview',
               i === 1 ? 'ml-8' : i === 2 ? 'ml-4' : '',
+              i > 2 ? 'hidden' : '',
             ]}
           >
             <div class="w-12 h-12 rounded-lg overflow-hidden bg-zinc-800 shrink-0">
@@ -110,10 +116,19 @@ const deployedAppsCount = apps.length
           </a>
         ))}
 
-        <!-- Decorative dots -->
         <div class="flex justify-end gap-2 mt-2 pr-4">
-          {[0,1,2].map(i => (
-            <div class:list={['w-1.5 h-1.5 rounded-full', i === 0 ? 'bg-indigo-500' : 'bg-zinc-700']} />
+          {carouselApps.map((app, i) => (
+            <button
+              type="button"
+              data-carousel-dot
+              data-index={i}
+              aria-label={`Afficher ${app.title}`}
+              aria-current={i === 0 ? 'true' : 'false'}
+              class:list={[
+                'w-2 h-2 rounded-full transition-all duration-200',
+                i === 0 ? 'bg-indigo-500 w-5' : 'bg-zinc-700 hover:bg-zinc-500',
+              ]}
+            />
           ))}
         </div>
       </div>
@@ -127,3 +142,69 @@ const deployedAppsCount = apps.length
     </div>
   </div>
 </section>
+
+<script>
+  const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]')
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-carousel-card]'))
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-carousel-dot]'))
+  const visibleCards = Math.min(3, cards.length)
+  let activeIndex = 0
+  let timer: number | undefined
+
+  const slotMargins = ['', 'ml-8', 'ml-4']
+
+  function renderCarousel() {
+    cards.forEach((card, index) => {
+      const offset = (index - activeIndex + cards.length) % cards.length
+      const isVisible = offset < visibleCards
+
+      card.classList.toggle('hidden', !isVisible)
+      slotMargins.forEach((margin) => {
+        if (margin) card.classList.remove(margin)
+      })
+
+      if (isVisible) {
+        card.style.order = String(offset)
+        const margin = slotMargins[offset]
+        if (margin) card.classList.add(margin)
+      }
+    })
+
+    dots.forEach((dot, index) => {
+      const isActive = index === activeIndex
+
+      dot.setAttribute('aria-current', String(isActive))
+      dot.classList.toggle('bg-indigo-500', isActive)
+      dot.classList.toggle('w-5', isActive)
+      dot.classList.toggle('bg-zinc-700', !isActive)
+      dot.classList.toggle('hover:bg-zinc-500', !isActive)
+    })
+  }
+
+  function goToSlide(index: number) {
+    activeIndex = (index + cards.length) % cards.length
+    renderCarousel()
+  }
+
+  function startCarousel() {
+    window.clearInterval(timer)
+    timer = window.setInterval(() => {
+      goToSlide(activeIndex + 1)
+    }, 5000)
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const index = Number(dot.dataset.index)
+      goToSlide(index)
+      startCarousel()
+    })
+  })
+
+  carousel?.addEventListener('mouseenter', () => window.clearInterval(timer))
+  carousel?.addEventListener('mouseleave', startCarousel)
+
+  if (cards.length > visibleCards) {
+    startCarousel()
+  }
+</script>
