@@ -124,6 +124,33 @@ export const apps: App[] = [
     featured: false,
     year: 2025,
   },
+  {
+    slug: 'markdown-to-pdf',
+    title: 'Markdown to PDF',
+    tagline: 'Outil de conversion de documents Markdown en PDF avec export facile.',
+    description:
+      'Markdown to PDF est un outil interne qui permet de convertir des documents Markdown en PDF avec un export facile et rapide. L\'interface permet à des non-développeurs de générer des PDF sans toucher au code.',
+    category: 'Productivity',
+    status: 'Live',
+    stack: ['React', 'Bootstrap', 'GitHub pages', 'TypeScript'],
+    features: [
+      'Conversion rapide de Markdown en PDF',
+      'Interface simple et intuitive',
+      'Export facile et rapide',
+      'Support de la syntaxe Markdown standard',
+    ],
+    screenshots: {
+      main: '/apps/markdown-to-pdf/main.svg',
+      gallery: [
+        '/apps/markdown-to-pdf/screen-1.png',
+      ],
+    },
+    links: {
+      github: 'https://github.com/romain-koenig/markdown-to-pdf',
+    },
+    featured: false,
+    year: 2023,
+  },
 ]
 
 export function getAppBySlug(slug: string): App | undefined {
