@@ -1,7 +1,9 @@
 ---
 import { getFeaturedApps } from '../data/apps'
 
-const featured = getFeaturedApps().slice(0, 3)
+const apps = getFeaturedApps()
+const featured = apps.slice(0, 3)
+const deployedAppsCount = apps.length
 ---
 
 <section class="relative min-h-screen flex items-center pt-16 overflow-hidden">
@@ -65,7 +67,7 @@ const featured = getFeaturedApps().slice(0, 3)
         <!-- Stats -->
         <div class="flex items-center gap-8 animate-fade-in-up animate-delay-400">
           <div class="flex flex-col">
-            <span class="text-2xl font-bold text-zinc-100">4+</span>
+            <span class="text-2xl font-bold text-zinc-100">{deployedAppsCount}+</span>
             <span class="text-xs text-zinc-500">Apps déployées</span>
           </div>
           <div class="w-px h-8 bg-white/8" />
