@@ -226,8 +226,8 @@ export const apps: App[] = [
     screenshots: {
       main: '/apps/hiit-training/main.png',
       gallery: [
-        '/apps/hiit-training/screen-1.svg',
-        '/apps/hiit-training/screen-2.svg',],
+        '/apps/hiit-training/screen-1.png',
+        '/apps/hiit-training/screen-2.png',],
     },
     links: {
       github: 'https://github.com/romain-koenig/daily-sport',
