@@ -206,6 +206,36 @@ export const apps: App[] = [
     featured: false,
     year: 2025,
   },
+{
+    slug: 'hiit-training',
+    title: 'HIIT Training',
+    tagline: 'Application web de séances HIIT avec suivi de progression.',
+    description:
+      'Daily Sport est une application web statique pour suivre des entraînements quotidiens à domicile. Elle propose des routines cardio chronométrées (avec ou sans équipement) et un mode Force avec saisie libre des répétitions, historique des séances et suivi de progression par exercice.',
+    category: 'Fitness',
+    status: 'Live',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express'],
+    features: [
+      'Routines cardio avec ou sans équipement, transitions automatiques entre exercices',
+      'Minuteur avec indicateurs visuels (exercice / repos / dernières secondes)',
+      'Mode Force : saisie libre des répétitions par série et par exercice',
+      'Suivi de progression avec historique des séances en localStorage',
+      'Routines personnalisables : ajout, suppression et réorganisation des exercices',
+      'Design responsive adapté à la pratique sur mobile',
+    ],
+    screenshots: {
+      main: '/apps/hiit-training/main.png',
+      gallery: [
+        '/apps/hiit-training/screen-1.svg',
+        '/apps/hiit-training/screen-2.svg',],
+    },
+    links: {
+      github: 'https://github.com/romain-koenig/daily-sport',
+      demo: 'https://hiit.kromatic.fr',
+    },
+    featured: false,
+    year: 2024,
+  },
 ]
 
 export function getAppBySlug(slug: string): App | undefined {
