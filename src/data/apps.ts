@@ -178,6 +178,34 @@ export const apps: App[] = [
     featured: false,
     year: 2026  ,
   },
+  {
+    slug: 'ocarina-stories',
+    title: 'Ocarina Stories',
+    tagline: 'Automatisation intelligente du traitement de podcasts pour enfants.',
+    description:
+      'Ocarina Stories est un script Python qui surveille des flux RSS de podcasts, télécharge les nouveaux épisodes, coupe automatiquement les génériques et organise les fichiers audio prêts à écouter en continu. Le projet répond à un besoin très concret : rendre l\'écoute d\'histoires pour enfants plus fluide, sans interruptions ni traitement manuel.',
+    category: 'Automation',
+    status: 'Live',
+    stack: ['Python', 'FFmpeg', 'SQLite', 'RSS/XML', 'JSON'],
+    features: [
+      'Surveillance de plusieurs flux RSS avec configuration par podcast',
+      'Téléchargement automatique des nouveaux épisodes audio',
+      'Coupe des génériques de début et de fin avec paramètres ajustables',
+      'Application de fade in/out pour une écoute fluide',
+      'Base SQLite pour éviter les doublons et suivre les épisodes traités',
+      'Organisation automatique des fichiers par podcast',
+    ],
+    screenshots: {
+      main: '/apps/ocarina-stories/main.png',
+      gallery: [],
+    },
+    links: {
+      github: 'https://github.com/romain-koenig/ocarina_stories',
+      demo: 'https://ocarina.kromatic.fr/',
+    },
+    featured: false,
+    year: 2025,
+  },
 ]
 
 export function getAppBySlug(slug: string): App | undefined {
