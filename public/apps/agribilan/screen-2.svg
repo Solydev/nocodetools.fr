@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" fill="#f9fafb"></rect>
+  
+  <g>
+    <rect x="0" y="0" width="240" height="675" fill="#ffffff"></rect>
+    <line x1="240" y1="0" x2="240" y2="675" stroke="#f3f4f6" stroke-width="1"></line>
+    <line x1="0" y1="72" x2="240" y2="72" stroke="#f3f4f6" stroke-width="1"></line>
+    <rect x="24" y="20" width="36" height="36" rx="10" fill="#16a34a"></rect>
+    <g fill="#ffffff">
+    <path d="M 42 39 Q 32 37 34 27 Q 44 29 42 39 Z"></path>
+    <path d="M 42 39 Q 52 37 50 27 Q 40 29 42 39 Z"></path>
+    <rect x="40.6" y="38" width="2.8" height="10" rx="1.4"></rect>
+  </g>
+    <text x="72" y="43" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="17" font-weight="700" fill="#111827">Agri Bilan</text>
+    
+      <g>
+        
+        <path d="M 33 115 L 40 108 L 47 115 L 47 122 L 33 122 Z" fill="none" stroke="#9ca3af" stroke-width="1.6" stroke-linejoin="round"></path>
+        <text x="60" y="120" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="600" fill="#6b7280">Accueil</text>
+      </g>
+      <g>
+        <rect x="16" y="146" width="208" height="46" rx="12" fill="#f0fdf4"></rect>
+        <g stroke="#16a34a" stroke-width="1.8" stroke-linecap="round">
+        <line x1="33" y1="164" x2="47" y2="164"></line>
+        <line x1="33" y1="169" x2="47" y2="169"></line>
+        <line x1="33" y1="174" x2="47" y2="174"></line>
+      </g>
+        <text x="60" y="174" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="600" fill="#15803d">Saisies</text>
+      </g>
+      <g>
+        
+        <g fill="#9ca3af">
+        <rect x="33" y="224" width="3.4" height="6" rx="1"></rect>
+        <rect x="38.3" y="219" width="3.4" height="11" rx="1"></rect>
+        <rect x="43.6" y="216" width="3.4" height="14" rx="1"></rect>
+      </g>
+        <text x="60" y="228" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="600" fill="#6b7280">Synthèse</text>
+      </g>
+      <g>
+        
+        <g fill="none" stroke="#9ca3af" stroke-width="1.6" stroke-linejoin="round">
+        <path d="M 40 270 L 47 275 L 40 280 L 33 275 Z"></path>
+        <path d="M 33 279.5 L 40 284.5 L 47 279.5"></path>
+      </g>
+        <text x="60" y="282" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="600" fill="#6b7280">Comparer</text>
+      </g>
+      <g>
+        
+        <g fill="#9ca3af">
+        <circle cx="40" cy="328" r="3.4"></circle>
+        <path d="M 33.5 338 Q 33.5 332.5 40 332.5 Q 46.5 332.5 46.5 338 Z"></path>
+      </g>
+        <text x="60" y="336" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="600" fill="#6b7280">Profil</text>
+      </g>
+    <line x1="16" y1="603" x2="224" y2="603" stroke="#f3f4f6" stroke-width="1"></line>
+    <circle cx="40" cy="633" r="16" fill="#e5e7eb"></circle>
+    <text x="66" y="629" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="600" fill="#111827">Ferme du Grand Chêne</text>
+    <text x="66" y="645" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#9ca3af">contact@grandchene.fr</text>
+  </g>
+  <text x="264" y="60" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="24" font-weight="700" fill="#111827">Saisies</text>
+  <rect x="1040" y="36" width="136" height="40" rx="12" fill="#16a34a"></rect>
+  <text x="1108" y="61" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">+ Nouvelle saisie</text>
+  <rect x="264" y="84" width="60" height="30" rx="15" fill="#111827"></rect><text x="278" y="103" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#ffffff">Tout</text><rect x="336" y="84" width="96" height="30" rx="15" fill="#f3f4f6"></rect><text x="350" y="103" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Dépenses</text><rect x="444" y="84" width="96" height="30" rx="15" fill="#f3f4f6"></rect><text x="458" y="103" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Recettes</text><g><rect x="552" y="84" width="150" height="30" rx="15" fill="#f3f4f6"></rect><text x="566" y="103" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">3  À compléter</text></g><text x="264" y="132" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#9ca3af">Culture</text><rect x="264" y="142" width="66.5" height="30" rx="15" fill="#f3f4f6"></rect><circle cx="282" cy="157" r="4" fill="#eab308"></circle><text x="292" y="161" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Blé</text><rect x="338.5" y="142" width="74" height="30" rx="15" fill="#f3f4f6"></rect><circle cx="356.5" cy="157" r="4" fill="#a16207"></circle><text x="366.5" y="161" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Noix</text><rect x="420.5" y="142" width="111.5" height="30" rx="15" fill="#f3f4f6"></rect><circle cx="438.5" cy="157" r="4" fill="#f97316"></circle><text x="448.5" y="161" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Tournesol</text><rect x="540" y="142" width="96.5" height="30" rx="15" fill="#f3f4f6"></rect><circle cx="558" cy="157" r="4" fill="#84cc16"></circle><text x="568" y="161" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Luzerne</text><rect x="644.5" y="142" width="89" height="30" rx="15" fill="#f3f4f6"></rect><circle cx="662.5" cy="157" r="4" fill="#94a3b8"></circle><text x="672.5" y="161" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">Sorgho</text><text x="264" y="196" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#9ca3af">Fournisseur / Client</text><rect x="264" y="206" width="91.5" height="30" rx="15" fill="#f3f4f6"></rect><text x="278" y="225" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">AgroPlus</text><rect x="363.5" y="206" width="91.5" height="30" rx="15" fill="#f3f4f6"></rect><text x="377.5" y="225" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">SemencesPro</text><rect x="463" y="206" width="46.5" height="30" rx="15" fill="#f3f4f6"></rect><text x="477" y="225" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">AgriDist</text><rect x="517.5" y="206" width="46.5" height="30" rx="15" fill="#f3f4f6"></rect><text x="531.5" y="225" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600" fill="#4b5563">MutAgri</text>
+  
+  <line x1="264" y1="288" x2="698" y2="288" stroke="#fecaca" stroke-width="2"></line>
+  <text x="264" y="278" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="700" fill="#dc2626">Dépenses <tspan font-size="11" font-weight="400" fill="#9ca3af">12 saisies</tspan></text>
+  <text x="698" y="278" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="17" font-weight="700" fill="#dc2626" text-anchor="end">−48 320 €</text>
+
+  <line x1="742" y1="288" x2="1176" y2="288" stroke="#dcfce7" stroke-width="2"></line>
+  <text x="742" y="278" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="700" fill="#16a34a">Recettes <tspan font-size="11" font-weight="400" fill="#9ca3af">7 saisies</tspan></text>
+  <text x="1176" y="278" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="17" font-weight="700" fill="#16a34a" text-anchor="end">+62 900 €</text>
+  
+    <rect x="264" y="308" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="278" y="330" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626">−1 250 €</text>
+    <text x="684" y="330" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">28/06</text>
+    <text x="278" y="348" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Engrais azoté · AgroPlus · Blé</text>
+    
+    <rect x="264" y="368" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="278" y="390" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626">−480 €</text>
+    <text x="684" y="390" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">20/06</text>
+    <text x="278" y="408" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Carburant tracteur · Sans fournisseur</text>
+    
+    <rect x="264" y="428" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="278" y="450" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626">−2 100 €</text>
+    <text x="684" y="450" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">14/06</text>
+    <text x="278" y="468" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Fermage parcelle Sud · AgriDist · Tournesol</text>
+    
+    <rect x="264" y="488" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="278" y="510" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626">−3 400 €</text>
+    <text x="684" y="510" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">02/06</text>
+    <text x="278" y="528" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Semences blé · SemencesPro · Blé</text>
+    
+    <rect x="264" y="548" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="278" y="570" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#dc2626">−920 €</text>
+    <text x="684" y="570" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">28/05</text>
+    <text x="278" y="588" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Assurance récolte · MutAgri · Partagé</text>
+    
+    <rect x="742" y="308" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="756" y="330" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#16a34a">+18 400 €</text>
+    <text x="1162" y="330" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">22/06</text>
+    <text x="756" y="348" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Vente noix — récolte 2025 · Négoce Vallée · Noix</text>
+    
+    <rect x="742" y="368" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="756" y="390" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#16a34a">+12 900 €</text>
+    <text x="1162" y="390" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">10/06</text>
+    <text x="756" y="408" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Vente blé — silo coopérative · Coopérative Rurale · Blé</text>
+    
+    <rect x="742" y="428" width="434" height="52" rx="12" fill="#ffffff" stroke="#f3f4f6"></rect>
+    <text x="756" y="450" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700" fill="#16a34a">+6 200 €</text>
+    <text x="1162" y="450" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="10" fill="#9ca3af" text-anchor="end">01/06</text>
+    <text x="756" y="468" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" font-size="11" fill="#6b7280">Vente tournesol · Négoce Vallée · Tournesol</text>
+    
+</svg>
